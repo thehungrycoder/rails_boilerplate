@@ -1,0 +1,25 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container-fluid
+      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand{:href => "#"} Moviemates
+      .nav-collapse
+        %ul.nav
+          %li.dropdown
+            %a.dropdown-toggle{'data-toggle' => 'dropdown', :href => '#'}
+              Movies
+              %b.caret
+            %ul.dropdown-menu
+              %li= link_to 'Latest Movies', latest_movies_path
+          %li= link_to "Link 2", "/path2"
+          %li= link_to "Link 3", "/path3"
+        %p.navbar-text.pull-right
+          - if user_signed_in?
+            Logged in as
+            = current_user.name.to_s
+            = link_to 'Signout', destroy_user_session_path
+          - else
+            = link_to t(:login), new_user_session_path

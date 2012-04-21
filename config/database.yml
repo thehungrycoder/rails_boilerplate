@@ -1,0 +1,11 @@
+global: &global
+  adapter: mysql2
+  pool: 100
+  timeout: 5000
+  username: root
+  password: root
+  socket: /Applications/MAMP/tmp/mysql/mysql.sock
+
+development:
+  <<: *global
+  database: app_dev
